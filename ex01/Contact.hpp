@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:11 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/04 17:41:54 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/04 19:40:56 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,20 @@
 class Contact
 {
 	private:
-		std::string firstName;
-		std::string lastName;
-		std::string nickName;
-		std::string phoneNumber;
-		std::string darkestSecret;
-		enum Field {
+		std::string	firstName;
+		std::string	lastName;
+		std::string	nickName;
+		std::string	phoneNumber;
+		std::string	darkestSecret;
+		enum Field
+		{
 			FirstName,
 			LastName,
 			NickName,
 			PhoneNumber,
 			DarkestSecret
 		};
+
 	public:
 		Contact();
 		~Contact();

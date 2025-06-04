@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:10 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/04 17:42:06 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/04 19:51:11 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ std::string	Contact::get_contact(int i) const
 		return (this->phoneNumber);
 	if (i == DarkestSecret)
 		return (this->darkestSecret);
+	return ("");
 }

@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:13 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/10 19:29:52 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/10 20:19:25 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,11 @@ int	main(void)
 			if (book.add())
 				break;
 		}
-		// else if (command == "SEARCH" || command == "search")
-		// 	book.search();
+		else if (command == "SEARCH" || command == "search")
+		{
+			if (book.search())
+				break;
+		}
 		else
 			std::cout << "\033[1;31mInvalid command: Command list: ADD, SEARCH or EXIT\033[0m" << std::endl;
 	}

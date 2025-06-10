@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:11 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/04 20:11:47 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/10 13:10:34 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ class Contact
 		Contact();
 		~Contact();
 
-		void		set_contact(int i, const std::string information);
-		std::string	get_contact(int i) const;
+		void		set_contact(int type, const std::string information);
+		std::string	get_contact(int type) const;
 };
 
 #endif

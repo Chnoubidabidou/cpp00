@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:10 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/04 20:11:23 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/10 13:10:28 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,31 @@ Contact::~Contact()
 		std::cout << "Deleting an empty contact" << std::endl;
 }
 
-void	Contact::set_contact(int i, const std::string information)
+void	Contact::set_contact(int type, const std::string information)
 {
-	if (i == FirstName)
+	if (type == FirstName)
 		this->firstName == information;
-	if (i == LastName)
+	if (type == LastName)
 		this->lastName == information;
-	if (i == NickName)
+	if (type == NickName)
 		this->nickName == information;
-	if (i == PhoneNumber)
+	if (type == PhoneNumber)
 		this->phoneNumber == information;
-	if (i == DarkestSecret)
+	if (type == DarkestSecret)
 		this->darkestSecret == information;
 }
 
-std::string	Contact::get_contact(int i) const
+std::string	Contact::get_contact(int type) const
 {
-	if (i == FirstName)
+	if (type == FirstName)
 		return (this->firstName);
-	if (i == LastName)
+	if (type == LastName)
 		return (this->lastName);
-	if (i == NickName)
+	if (type == NickName)
 		return (this->nickName);
-	if (i == PhoneNumber)
+	if (type == PhoneNumber)
 		return (this->phoneNumber);
-	if (i == DarkestSecret)
+	if (type == DarkestSecret)
 		return (this->darkestSecret);
 	return ("");
 }

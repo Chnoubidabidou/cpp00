@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:15 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/04 20:11:33 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:45:12 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 PhoneBook::PhoneBook()
 {
+	this->contact_index = 0;
 	this->contact_count = 0;
 	std::cout << "\033[1;32mPhonebook created\033[0m" << std::endl;
 }
@@ -23,9 +24,106 @@ PhoneBook::~PhoneBook()
 	std::cout << "\033[1;32mPhonebook destroyed\033[0m" << std::endl;
 }
 
-void	PhoneBook::add()
+int	PhoneBook::_is_valid_number(const std::string &str) const
 {
+	if (str.empty())
+		return (0);
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '+'))
+			return (std::cout << "\033[1;31mOnly numbers, spaces and '+' is authorized\033[0m" << std::endl ,0);
+	}
+	return (1);
+}
 
+int	PhoneBook::_is_valid_name(const std::string &str) const
+{
+	if (str.empty())
+		return (0);
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z') || str[i] == '-'))
+			return (std::cout << "\033[1;31mOnly letters and '-' is authorized\033[0m" << std::endl ,0);
+	}
+	return (1);
+}
+
+int	PhoneBook::_get_next_index() const
+{
+	static int index = 0;
+	if (this->contacts[0].get_contact(FirstName).empty())
+		return (0);
+	index++;
+	if (index == 8)
+		index = index % 8;
+	return (index);
+}
+
+int	PhoneBook::add()
+{
+	std::string	question[5] = {
+		"Enter first name",
+		"Enter last name",
+		"Enter nick name",
+		"Enter Phone number",
+		"Enter darkest secret"
+	};
+	if (this->contact_index == 8)
+		this->contact_index = this->contact_index % 8;
+	std::cout << "\033[1;34mAdding contact at index " << this->contact_index + 1 << "\033[0m" << std::endl;
+	std::cin.ignore();
+	for (int i = 0; i < 5; i++)
+	{
+		if (this->_ask(question[i], this->contacts[this->contact_index], i) == EXIT_FAILURE)
+			return (1);
+	}
+	this->contact_index++;
+	return (0);
+}
+
+int	PhoneBook::_ask(std::string question, Contact &contact, int index)
+{
+	std::string	input;
+
+	while (1)
+	{
+		std::cout << question << " > ";
+		getline(std::cin, input);
+		if (std::cin.eof())
+			return (std::cout << "^D" << std::endl, 1);
+		else if (index == 0)
+		{
+			if (!_is_valid_name(input))
+				continue;
+			contact.set_contact(FirstName, input);
+			break;
+		}
+		else if (index == 1)
+		{
+			if (!_is_valid_name(input))
+				continue;
+			contact.set_contact(LastName, input);
+			break;
+		}
+		else if (index == 2 && !input.empty())
+		{
+			contact.set_contact(NickName, input);
+			break;
+		}
+		else if (index == 3)
+		{
+			if (!_is_valid_number(input))
+				continue;
+			contact.set_contact(PhoneNumber, input);
+			break;
+		}
+		else if (index == 4 && !input.empty())
+		{
+			contact.set_contact(DarkestSecret, input);
+			break;
+		}
+	}
+	return (0);
 }
 
 void	PhoneBook::search()
@@ -35,4 +133,5 @@ void	PhoneBook::search()
 		std::cout << "\033[1;31mPhonebook is empty\033[0m" << std::endl;
 		return ;
 	}
+	
 }

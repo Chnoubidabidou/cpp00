@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:15 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/10 20:18:46 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/11 12:51:57 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,9 @@ int	PhoneBook::add()
 	if (this->contact_index == 8)
 		this->contact_index = this->contact_index % 8;
 	std::cout << "\033[1;34mAdding contact at index " << this->contact_index + 1 << "\033[0m" << std::endl;
-	std::cin.ignore();
 	for (int i = 0; i < 5; i++)
 	{
-		if (this->_ask(question[i], this->contacts[this->contact_index], i) == EXIT_FAILURE)
+		if (this->_ask(question[i], this->contacts[this->contact_index], i))
 			return (1);
 	}
 	this->contact_index++;
@@ -88,9 +87,9 @@ int	PhoneBook::_ask(std::string question, Contact &contact, int index)
 	while (1)
 	{
 		std::cout << question << " > ";
+		getline(std::cin, input);
 		if (std::cin.eof())
 			return (std::cout << "^D" << std::endl, 1);
-		getline(std::cin, input);
 		if (index == 0)
 		{
 			if (!_is_valid_name(input))
@@ -130,7 +129,6 @@ int	PhoneBook::search()
 {
 	if (this->contacts[0].get_contact(FirstName).empty())
 		return (std::cout << "\033[1;31mPhonebook is empty\033[0m" << std::endl, 0);
-	printf("oui");
 	PhoneBook::_display_lobby();
 	std::string	index;
 	std::cout << "Enter index > ";

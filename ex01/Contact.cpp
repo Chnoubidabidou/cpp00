@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:10 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/10 13:10:28 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/11 12:28:20 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ Contact::~Contact()
 void	Contact::set_contact(int type, const std::string information)
 {
 	if (type == FirstName)
-		this->firstName == information;
+		this->firstName = information;
 	if (type == LastName)
-		this->lastName == information;
+		this->lastName = information;
 	if (type == NickName)
-		this->nickName == information;
+		this->nickName = information;
 	if (type == PhoneNumber)
-		this->phoneNumber == information;
+		this->phoneNumber = information;
 	if (type == DarkestSecret)
-		this->darkestSecret == information;
+		this->darkestSecret = information;
 }
 
 std::string	Contact::get_contact(int type) const

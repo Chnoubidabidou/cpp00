@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:13 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/10 20:19:25 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/11 12:44:59 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	while (1)
 	{
 		std::cout << "Enter a command > ";
-		std::cin >> command;
+		std::getline(std::cin, command);
 		if (std::cin.eof())
 		{
 			std::cout << "^D" << std::endl;

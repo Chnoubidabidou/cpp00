@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:05:15 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/11 12:51:57 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:59:03 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int	PhoneBook::_is_valid_number(const std::string &str) const
 int	PhoneBook::_is_valid_name(const std::string &str) const
 {
 	if (str.empty())
-		return (0);
-	for (size_t i = 0; i < str.length(); i++)
+	{
+		return (std::cout << "\033[1;31mField cannot be empty\033[0m" << std::endl, 0);
+	}
+		for (size_t i = 0; i < str.length(); i++)
 	{
 		if (!((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z') || str[i] == '-'))
 			return (std::cout << "\033[1;31mOnly letters and '-' is authorized\033[0m" << std::endl ,0);

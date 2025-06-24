@@ -6,7 +6,7 @@
 /*   By: lgrisel <lgrisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 14:40:00 by lgrisel           #+#    #+#             */
-/*   Updated: 2025/06/12 15:02:24 by lgrisel          ###   ########.fr       */
+/*   Updated: 2025/06/24 12:54:07 by lgrisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
-
-Account::Account()
-{
-}
 
 Account::Account(int initial_deposit)
 {
